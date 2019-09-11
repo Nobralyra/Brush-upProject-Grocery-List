@@ -1,8 +1,20 @@
 public class GroceryItemOrder
 {
     private String ItemName;
-    private int Quantity;
-    private double PricePrUnit;
+    private int Quantity = 1;
+    private double PricePrUnit = 0;
+
+    public GroceryItemOrder(String itemName)
+    {
+        ItemName = itemName;
+    }
+
+    public GroceryItemOrder(String itemName, int quantity, double pricePrUnit)
+    {
+        ItemName = itemName;
+        Quantity = quantity;
+        PricePrUnit = pricePrUnit;
+    }
 
     public String getItemName()
     {
@@ -29,16 +41,7 @@ public class GroceryItemOrder
         Quantity = quantity;
     }
 
-    public GroceryItemOrder(String itemName)
-    {
-        ItemName = itemName;
-    }
 
-    public GroceryItemOrder(int quantity, double pricePrUnit)
-    {
-        Quantity = quantity;
-        PricePrUnit = pricePrUnit;
-    }
 
     public double getCost()
     {
