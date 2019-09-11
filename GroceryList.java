@@ -1,25 +1,39 @@
 public class GroceryList
 {
-    int[] ArrayGrocery = new int[10];
+    private GroceryItemOrder[] _arrayGrocery = new GroceryItemOrder[10];
+    private int _current = -1;
 
-    for (int i = 0; i < ArrayGrocery.length; i++)
+    public void addItem(GroceryItemOrder groceryitemorder)
     {
-        System.out.println(ArrayGrocery[i] + " ");
+        _current++;
+        if (_current >= 10)
+        {
+            throw new ArrayIndexOutOfBoundsException("Can not store more Items!");
+        }
+      _arrayGrocery[_current] = groceryitemorder;
     }
 
-    public String addItem(String itemName,int quantity, double pricePrUnit)
+    public double TotalCostList()
     {
-        return "";
-    }
+        double totalCost = 0;
+        int length = _current >= 10?9:_current;
+        for (int i = 0; i <= length; i++)
+        {
+            totalCost += _arrayGrocery[i].getCost();
 
-    public double TotalCostList(double totalCost)
-    {
+        }
         return totalCost;
     }
 
     @Override
     public String toString()
     {
+        int length = _current >= 10?9:_current;
+        for (int i = 0; i <= length; i++)
+        {
+            System.out.println(_arrayGrocery[i].toString());
+        }
+        System.out.println("Total price" + TotalCostList());
         return "";
     }
 }
