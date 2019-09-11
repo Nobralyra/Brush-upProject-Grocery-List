@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+public class GroceryList2
+{
+    private ArrayList<GroceryItemOrder> _arrayGrocery = new ArrayList<GroceryItemOrder>();
+
+
+    public void addItem(GroceryItemOrder groceryitemorder)
+    {
+       _arrayGrocery.add(groceryitemorder);
+    }
+
+    public double TotalCostList()
+    {
+        double totalCost = 0;
+        for (int i = 0; i < _arrayGrocery.size(); i++)
+        {
+            totalCost += _arrayGrocery.get(i).getCost();
+
+        }
+        return totalCost;
+    }
+
+    @Override
+    public String toString()
+    {
+        for (int i = 0; i < _arrayGrocery.size(); i++)
+        {
+            System.out.println(_arrayGrocery.get(i).toString());
+        }
+        System.out.println("Total price" + TotalCostList());
+        return "";
+    }
+}
